@@ -1,0 +1,15 @@
+name: HTML Lint Check
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  html-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+      - name: Run HTMLHint
+        run: htmlhint "**/*.html"
